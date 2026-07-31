@@ -28,4 +28,21 @@ class TodoTest extends TestCase
         $response->assertSee('test');
         $response->assertSee('test2');
     }
+
+    public function test_store_can_create_a_todo(): void
+    {
+    $data=['content'=>'テスト用のタスクです',];
+
+    $response= $this->post('/todos',$data);
+
+    $this->assertDatabaseHas('todos',[
+        'content'=>'テスト用のタスクです',
+    ]);
+    
+    $response->assertRedirect('/');
+
+    $response = $this->get('/');
+    $response->assertStatus(200);
+    $response->assertSee('テスト用のタスクです',false);
+}
 }
