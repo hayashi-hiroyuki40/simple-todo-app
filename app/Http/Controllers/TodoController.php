@@ -29,4 +29,11 @@ class TodoController extends Controller
 
         return redirect('/')->with('message','Todoを更新しました');
     }
+
+    public function destroy(Request $request)
+    {
+        Todo::destroy($request->id);
+
+        return redirect('/')->with('message','Todoを削除しました');
+    }
 }

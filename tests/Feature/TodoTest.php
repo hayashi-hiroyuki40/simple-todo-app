@@ -67,4 +67,22 @@ class TodoTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('テスト用の更新タスクです',false);
     }
+
+    public function test_destroy_can_destroy_a_todo(): void
+    {
+        $todo=Todo::create([
+            'content'=>'テスト用の削除前タスクです']);
+        
+        $response=$this->delete('/todos/delete',['id'=>$todo->id]);
+
+        $this->assertDatabaseMissing('todos', [
+            'id' => $todo->id,
+    ]);
+        
+        $response->assertRedirect('/');
+
+        $response = $this->get('/');
+        $response->assertStatus(200);
+        $response->assertDontSee('テスト用の削除前タスクです',false);
+    }
 }
