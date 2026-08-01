@@ -31,35 +31,58 @@
 
         .todo__content {
             margin: 0 auto;
-            padding: 60px 15px;
+            padding: 30px 15px;
             max-width: 1230px;
         }
 
-        .create-form {
+        .section__title {
+            margin: 0 auto;
+            width: 70%;
+        }
+
+        .create-form,
+        .search-form {
             display: flex;
             justify-content: space-between;
             margin: 0 auto;
+            margin-bottom: 15px;
             width: 70%;
             text-align: center;
         }
 
-        .create-form__item {
+        .create-form__item,
+        .search-form__item {
+            display: flex;
             width: 70%;
         }
 
-        .create-form__item-input {
+        .create-form__item-input,
+        .search-form__item-input {
+            margin-right: 10px;
             padding: 10px;
-            width: 100%;
+            width: 70%;
             height: 40px;
             border: 1px solid #ddd;
             border-radius: 3px;
         }
 
-        .create-form__button {
+        .create-form__item-select,
+        .search-form__item-select {
+            padding: 10px;
+            width: 30%;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            appearance: none;
+        }
+
+        .create-form__button,
+        .search-form__button {
             width: 20%;
         }
 
-        .create-form__button-submit {
+        .create-form__button-submit,
+        .search-form__button-submit {
             padding: 10px;
             width: 100%;
             height: 40px;
@@ -73,7 +96,7 @@
         .todo-table {
             margin: 30px auto;
             width: 70%;
-            text-align: left;
+            text-align: center;
         }
 
         .todo-table__inner {
@@ -91,6 +114,10 @@
             font-weight: bold;
         }
 
+        .todo-table__header-span {
+            margin-right: 40%;
+        }
+
         .todo-table__item:first-of-type {
             padding: 12px;
             width: 90%;
@@ -103,7 +130,7 @@
         }
 
         .update-form__item {
-            width: 80%;
+            width: 40%;
             line-height: 50%;
         }
 
@@ -111,6 +138,11 @@
             width: 100%;
             outline: none;
             border: none;
+        }
+
+        .update-form__item-p {
+            text-align: left;
+            font-size: 13px;
         }
 
         .update-form__button {
@@ -151,11 +183,22 @@
             max-width: 1230px;
         }
 
+        .header-utilities {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .header__logo {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             font-size: 24px;
+        }
+
+        .header-nav__link {
+            color: #fff;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -163,12 +206,20 @@
 <body>
     <header class="header">
         <div class="header__inner">
-            <a class="header__logo" href="/">
-                Todo
-            </a>
+            <div class="header-utilities">
+                <a class="header__logo" href="/">
+                    Todo
+                </a>
+                <nav>
+                    <ul class="header-nav">
+                        <li class="header-nav__item">
+                            <a class="header-nav__link" href="/categories">カテゴリ一覧</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
-
     <main>
         @yield('content')
     </main>
