@@ -45,4 +45,26 @@ class TodoTest extends TestCase
     $response->assertStatus(200);
     $response->assertSee('テスト用のタスクです',false);
 }
+
+    public function test_update_can_update_a_todo(): void
+    {
+        $todo=Todo::create([
+            'content'=>'テスト用の更新前のタスクです'
+        ]);
+    
+        $data=['id'=>$todo->id,
+            'content'=>'テスト用の更新タスクです'];
+
+        $response=$this->put('/todos/update',$data);
+
+        $this->assertDatabaseHas('todos',[
+            'id'=>$todo->id,
+            'content'=>'テスト用の更新タスクです',
+        ]);
+        $response->assertRedirect('/');
+
+        $response = $this->get('/');
+        $response->assertStatus(200);
+        $response->assertSee('テスト用の更新タスクです',false);
+    }
 }
