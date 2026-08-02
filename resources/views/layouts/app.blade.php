@@ -93,65 +93,55 @@
             cursor: pointer;
         }
 
+        /* === テーブルのスタイル修正箇所 === */
         .todo-table {
             margin: 30px auto;
             width: 70%;
-            text-align: center;
         }
 
         .todo-table__inner {
             width: 100%;
+            border-collapse: collapse;
+            /* 枠線を重ねて区切り線（border）を表示可能にする */
         }
 
         .todo-table__row {
             border-bottom: 1px solid #ddd;
+            /* 各行の下に区切り線を入れる */
         }
 
         .todo-table__header {
-            padding: 12px;
-            width: 20%;
+            padding: 12px 0;
             text-align: left;
             font-weight: bold;
         }
 
-        .todo-table__header-span {
-            margin-right: 40%;
+        .todo-table__item {
+            padding: 12px 0;
+            vertical-align: middle;
         }
 
-        .todo-table__item:first-of-type {
-            padding: 12px;
-            width: 90%;
-        }
-
+        /* === フォーム要素のスタイル === */
         .update-form {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-        }
-
-        .update-form__item {
-            width: 40%;
-            line-height: 50%;
+            width: 100%;
         }
 
         .update-form__item-input {
             width: 100%;
             outline: none;
             border: none;
+            font-size: 16px;
         }
 
         .update-form__item-p {
             text-align: left;
-            font-size: 13px;
-        }
-
-        .update-form__button {
-            width: 50px;
+            margin: 0;
         }
 
         .update-form__button-submit {
-            padding: 5px;
-            width: 100%;
+            padding: 5px 10px;
             border: none;
             border-radius: 3px;
             background: #0000ff;
@@ -159,13 +149,8 @@
             cursor: pointer;
         }
 
-        .delete-form__button {
-            width: 50px;
-        }
-
         .delete-form__button-submit {
-            padding: 5px;
-            width: 100%;
+            padding: 5px 10px;
             border: none;
             border-radius: 3px;
             background: #ff0000;
@@ -173,6 +158,7 @@
             cursor: pointer;
         }
 
+        /* ヘッダー */
         .header {
             background: #000;
         }
@@ -201,6 +187,7 @@
             text-decoration: none;
         }
     </style>
+
 </head>
 
 <body>

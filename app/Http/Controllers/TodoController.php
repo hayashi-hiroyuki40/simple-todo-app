@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TodoRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Todo;
 class TodoController extends Controller
@@ -10,13 +11,14 @@ class TodoController extends Controller
     public function index()
     {
         $todos = Todo::all();
+        $categories=Category::all();
         
-        return view('index',compact('todos'));
+        return view('index',compact('todos','categories'));
     }
 
     public function store(TodoRequest $request)
     {
-        $Todo=$request->only('content');
+        $Todo=$request->only('content','category_id');
         Todo::create($Todo);
 
         return redirect('/')->with('message','Todoを作成しました');
