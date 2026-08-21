@@ -16,14 +16,16 @@ COACHTECH 旧教材　「TODOアプリを作成しよう」　で作成した成
 
 以下の手順に沿ってローカル開発環境を構築してください。
 
-1. リポジトリのクローンと移動
+
 
 ```bash
+# リポジトリのクローンと移動
+
 git clone https://github.com/hayashi-hiroyuki40/simple-todo-app.git
 
 cd simple-todo-app
 
-2.Composer パッケージのインストール
+# Composer パッケージのインストール
 
 docker run --rm \
   -u "$(id -u):$(id -g)" \
@@ -33,11 +35,11 @@ docker run --rm \
   laravelsail/php82-composer:latest \
   composer install
 
-3.環境設定ファイル (.env) の作成
+# 環境設定ファイル (.env) の作成
 
 cp .env.example .env
 
-4.Laravel Sail (MySQL) のセットアップ
+# Laravel Sail (MySQL) のセットアップ
 
 docker run --rm \
   -u "$(id -u):$(id -g)" \
@@ -47,15 +49,15 @@ docker run --rm \
   laravelsail/php82-composer:latest \
   php artisan sail:install --with=mysql
 
-5.Dockerコンテナの起動
+# Dockerコンテナの起動
 
 ./vendor/bin/sail up -d
 
-6.アプリケーションキーの生成
+# アプリケーションキーの生成
 
 ./vendor/bin/sail artisan key:generate
 
-7.データベースのマイグレーション
+# データベースのマイグレーション
 
 ./vendor/bin/sail artisan migrate
 ```
