@@ -35,12 +35,10 @@ docker run --rm \
 
 3.環境設定ファイル (.env) の作成
 
-Bash
 cp .env.example .env
 
 4.Laravel Sail (MySQL) のセットアップ
 
-Bash
 docker run --rm \
   -u "$(id -u):$(id -g)" \
   -v "$(pwd):/var/www/html" \
@@ -51,17 +49,14 @@ docker run --rm \
 
 5.Dockerコンテナの起動
 
-Bash
 ./vendor/bin/sail up -d
 
 6.アプリケーションキーの生成
 
-Bash
 ./vendor/bin/sail artisan key:generate
 
 7.データベースのマイグレーション
 
-Bash
 ./vendor/bin/sail artisan migrate
 ```
 
