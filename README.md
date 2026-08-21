@@ -25,7 +25,6 @@ cd simple-todo-app
 
 2.Composer パッケージのインストール
 
-Bash
 docker run --rm \
   -u "$(id -u):$(id -g)" \
   -v "$(pwd):/var/www/html" \
